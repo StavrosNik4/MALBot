@@ -122,4 +122,4 @@ client.on("message", msg => {
     }
 })
 
-client.login('MTAzOTczMTE1NjEyNTUwMzU2MA.Geb0gx.LBcMOXEHvFm1NaM_8zZjD1PoyP6Bug-eoKfooU')
+client.login()
