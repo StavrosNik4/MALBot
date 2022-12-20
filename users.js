@@ -3,52 +3,90 @@ const cheerio = require('cheerio')
 
 const BASE_URI = 'https://myanimelist.net/profile/'
 
-const parsePage = ($, name) => {
-    const pfp = $('#content .user-image img')
-    const status1 = $('#content .user-profile .user-status-title')
-    const status2 = $('#content .user-profile .user-status-data')
-    const result = []
-    result.push({ Username: name })
-    pfp.each(function () {
-        result.push({
-            ProfilePictureLink: $(this).attr('data-src').trim()
+/**
+ * Method that it's used to add user's favorites
+ * @param $
+ * @param res the result object
+ * @param fav list of favourites
+ * @param i integer for specific favorite
+ */
+const addFavorites = ($, res, fav, i) => {
+    if ($(fav).text() !== '') { // check if there are no favorites
+        const favs = []
+        fav.each(function () {
+            favs.push($(this).text())
         })
-    })
-    result.push({
-        LastOnline: $(status2[0]).text()
-    })
+        if (i === 1) {
+            Object.assign(res, { favoriteAnime: favs })
+        } else if (i === 2) {
+            Object.assign(res, { favoriteManga: favs })
+        } else if (i === 3) {
+            Object.assign(res, { favoriteCharacters: favs })
+        } else {
+            Object.assign(res, { favoritePeople: favs })
+        }
+    }
+}
+
+/* the method that it's used in order to use to parse the page
+   and get all the info we want
+ */
+const parsePage = ($, name) => {
+    const pfp = $('#content .user-image img') // getting the profile picture page section
+    const status1 = $('#content .user-profile .user-status-title') // getting the status titles page section
+    const status2 = $('#content .user-profile .user-status-data') // getting the status data page section
+    const result = {} // we will put here all the properties
+    // pushing some basic properties and values
+    Object.assign(result, { username: name })
+    Object.assign(result, { profilePictureLink: $(pfp).attr('data-src').trim() })
+    Object.assign(result, { lastOnline: $(status2[0]).text() })
+
+    // loop for the status
     let i = 1
     const arrayLength = status1.length
     while (i < arrayLength - 1) {
         const val = $(status1[i]).text()
         switch (val) {
             case 'Gender':
-                result.push({
-                    Gender: $(status2[i]).text()
-                })
+                Object.assign(result, { gender: $(status2[i]).text() })
                 break
             case 'Birthday':
-                result.push({
-                    Birthday: $(status2[i]).text()
-                })
+                Object.assign(result, { birthday: $(status2[i]).text() })
                 break
             case 'Location':
-                result.push({
-                    Location: $(status2[i]).text()
-                })
+                Object.assign(result, { location: $(status2[i]).text() })
                 break
             case 'Joined':
-                result.push({
-                    Joined: $(status2[i]).text()
-                })
+                Object.assign(result, { joined: $(status2[i]).text() })
         }
         i++
     }
-    const finalObj = {}
-    for (let i = 0; i < result.length; i++) {
-        Object.assign(finalObj, result[i])
+    const bio = $('#content .profile-about-user .word-break') // getting the bio page section
+    if ($(bio).text() !== '') { // check if there is no bio
+        Object.assign(result, { Bio: $(bio).text().replace(/\n\n/g, '').trim().replace(/\n/g, ' ').trim() }) // trim the whitespaces and remove extra newlines
     }
-    return finalObj
+    // getting the text of the stats page section
+    const stats = $('#statistics .stat-score').text().replace(/\n\n/g, '').trim().replace(/\n/g, ' ').replace(/\s+/g, ' ').trim()
+    // getting the words of the text
+    const words = stats.split(' ')
+    // pushing the right values
+    Object.assign(result, { animeDays: words[1] })
+    Object.assign(result, { animeMeanScore: words[4] })
+    Object.assign(result, { mangaDays: words[6] })
+    Object.assign(result, { mangaMeanScore: words[9] })
+    /*
+      getting and adding the user's favorites
+      anime, manga, characters and people
+    */
+    const FavoriteAnime = $('#anime_favorites .fs10')
+    addFavorites($, result, FavoriteAnime, 1)
+    const favMangas = $('#manga_favorites .fs10')
+    addFavorites($, result, favMangas, 2)
+    const favChars = $('#character_favorites .fs10')
+    addFavorites($, result, favChars, 3)
+    const favActors = $('.favmore .fs10')
+    addFavorites($, result, favActors, 4)
+    return result
 }
 
 const searchPage = (url, name) => {
@@ -71,10 +109,11 @@ const getUserFromName = (name) => {
     })
 }
 
+// wrapper method to check if @name is actually string
 const getUser = (name) => {
     return new Promise((resolve, reject) => {
         if (!name || typeof name !== 'string') {
-            reject(new Error('[Mal-Scraper]: Malformed input. ID or name is malformed or missing.'))
+            reject(new Error('[Mal-Scraper]: Malformed input. Name is malformed or missing.'))
             return
         }
 
@@ -83,3 +122,8 @@ const getUser = (name) => {
             .catch(/* istanbul ignore next */(err) => reject(err))
     })
 }
+
+module.exports = {
+    getUser
+}
+
