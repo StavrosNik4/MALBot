@@ -21,7 +21,7 @@ client.on('messageCreate', msg => {
 
     const cm = msg.content
     const result = cm.trim().split(/\s+/);
-    let rpm = ''
+    //let rpm = ''
     let cs = ''
     //console.log(result);
     for (let i = 1; i < result.length; i++) {
@@ -30,13 +30,13 @@ client.on('messageCreate', msg => {
     //console.log(cs)
 
     if (result[0] === '>user')
-        getUser(cs, msg, rpm);
+        getUser(cs, msg);
     if (result[0] === '>pics')
-        getPictures(cs, msg, rpm);
+        getPictures(cs, msg);
     if(result[0] === '>stats')
-        getStats(cs, msg, rpm);
+        getStats(cs, msg);
     if(result[0] === '>info')
-        getInfo(cs, msg, rpm);
+        getInfo(cs, msg);
 
     if(result[0] === '>supp')
         printSupport(msg);
@@ -67,7 +67,7 @@ function getPictures(cs, msg, rpm){
     }).catch((err) => console.log(err))
 }
 
-function getStats(cs, msg, rpm){
+function getStats(cs, msg){
     malScraper.getStats(cs).then(async (data) => {
         let states = []
         for (var prop in data)
@@ -137,11 +137,11 @@ function printHelp(msg) {
 }
 
 function printSupport(msg){
-    const txt = '`You can support the MALBot Project and me (the developer) by the following ways:` \n' +
-                ':star: Star the project on GitHub: https://github.com/StavrosNik4/MALBot \n' +
-                ':arrow_forward: Watch my YouTube video for the bot (it\'s in Greek but there are English subtitles): \n' +
-                ':moneybag: PayPal: https://www.paypal.com/donate/?hosted_button_id=63 \n' +
-                ':coffee: or buy me a Ko-fi: https://ko-fi.com/kamenos\n' +
+    const txt = '`You can support the MALBot Project by the following ways:` \n' +
+                ':star: Star the project on GitHub or help by contributing: https://github.com/StavrosNik4/MALBot \n' +
+                ':arrow_forward: Watch YouTube video for the bot (it\'s in Greek but there are English subtitles available): \n' +
+                ':moneybag: PayPal donate link: https://www.paypal.com/donate/?hosted_button_id=63 \n' +
+                ':coffee: or buy a Ko-fi: https://ko-fi.com/kamenos\n' +
                 ':star: Add the bot to your own Discord server: https://discord.com/api/oauth2/authorize?client_id=1039731156125503560&permissions=8&scope=bot%20applications.commands\n' +
                 'Thank you for all your support! :heart:'
 
