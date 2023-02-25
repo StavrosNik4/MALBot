@@ -3,7 +3,7 @@ const malScraper = require("mal-scraper");
 const QuickChart = require("quickchart-js");
 
 // function that returns info about a user
-export function getUser(cs) {
+function getUser(cs) {
     return new Promise((resolve, reject) => {
         let rpm = '';
         g.getUser(cs)
@@ -19,7 +19,7 @@ export function getUser(cs) {
 }
 
 // function that returns pictures of a show
-export function getPictures(cs) {
+function getPictures(cs) {
     return new Promise((resolve, reject) => {
         malScraper.getPictures(cs)
             .then((data) => {
@@ -40,7 +40,7 @@ export function getPictures(cs) {
 }
 
 // function that returns stats of a show in a visual way
-export function getStats(cs){
+function getStats(cs){
     return new Promise((resolve, reject) => {
         malScraper.getStats(cs).then(async (data) => {
             let states = []
@@ -88,7 +88,7 @@ export function getStats(cs){
 }
 
 // function that returns info for a series
-export function getInfo(cs){
+function getInfo(cs){
     return new Promise((resolve, reject) => {
         let rpm = "";
         malScraper.getInfoFromName(cs, true).then((data) => {
@@ -102,4 +102,11 @@ export function getInfo(cs){
                 resolve("Series doesn't exist!");
         }).catch((err) => reject(err))
     });
+}
+
+module.exports = {
+    getUser,
+    getStats,
+    getInfo,
+    getPictures
 }

@@ -1,7 +1,7 @@
 const {Client, GatewayIntentBits} = require('Discord.js')
 require('dotenv/config')
 require('./SuppHelp.js')
-import {getUser, getStats, getInfo, getPictures} from "./functions.js";
+require("./functions.js");
 
 // create the client
 const client = new Client({
