@@ -30,33 +30,30 @@ MALBot is an essential tool for every anime-related discord server.
 
 #### **>user** _username_
 Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png" width=45%> <br>
 Result: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png" width=45% height=45%> <br>
 
 #### **>stats** _anime_name_
 Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_4.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_1.png" width=45%> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_5.png" width=45% height=45%> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_2.png" width=45% height=45%> <br>
 
 #### **>pics** _anime_name_
 Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_6.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_1.png" width=45%> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_7.png" width=45% height=45%> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_2.png" width=45% height=45%> <br>
 
 #### **>info** _anime_name_
 Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_8.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_1.png"> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_9.png" width=45% height=45%> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_2.png" width=45% height=45%> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_3.png" width=45% height=45%> <br>
 
 #### **>supp**
-Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_10.png"> <br>
-Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_11.png" width=45% height=45%> <br>
 
 
 ## Invite the official bot to your server
