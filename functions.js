@@ -8,18 +8,23 @@ function removeNonAlphanumeric(str) {
 }
 
 // function that returns info about a user
-function getUser(cs) {
+function getUser(query) {
     return new Promise((resolve, reject) => {
-        let rpm = '';
-        g.getUser(cs)
+        let rpm = "";
+        g.getUser(query)
             .then((data) => {
-                for (let prop in data)
-                    rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n';
-                if (rpm !== "")
-                    resolve(rpm); // Resolve the Promise with the updated value of rpm
-                else
+                try{
+                    for (let prop in data)
+                        rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n';
+                    if (rpm !== "")
+                        resolve(rpm); // Resolve the Promise with the updated value of rpm
+                    else
+                        resolve("User doesn't exist!");
+                }
+                catch (e){
                     resolve("User doesn't exist!");
-            }).catch((err) => reject(err));
+                }
+            }).catch((err) => resolve("Error!\nTry again!"));
     });
 }
 
@@ -73,7 +78,7 @@ function getPictures(query) {
                                     else
                                         resolve("This series doesn't exists!");
                                 })
-                                .catch((err) => console.log(err))
+                                .catch((err) => resolve({rpm: "Error!", rpm2: "Try again!"}))
                         }
                         catch (e){
                             malScraper.getPictures(query)
@@ -91,12 +96,12 @@ function getPictures(query) {
                                     else
                                         resolve("This series doesn't exists!");
                                 })
-                                .catch((err) => console.log(err))
+                                .catch((err) => resolve("Error!\nTry again!"));
                         }
                     })
-                    .catch((err) => console.log(err));
+                    .catch((err) => resolve("Error!\nTry again!"));
             })
-            .catch((err) => console.log(err));
+            .catch((err) => resolve("Error!\nTry again!"));
     });
 }
 
@@ -148,13 +153,18 @@ function getStats(query){
                                         datasets: [{
                                             label: 'User State',
                                             data: [states[0], states[1], states[2], states[3], states[4]],
-                                            backgroundColor: '#fd5b75'
+                                            backgroundColor: '#fd5b75',
+                                            datalabels: {
+                                                color: '#000000',
+                                                yAdjust: 25
+                                            }
                                         }]
                                     },
                                     options: {
                                         plugins: {
                                             datalabels: {
-                                                color: '#fff'
+                                                color: '#000000',
+                                                yAdjust: 25
                                             }
                                         }
                                     }
@@ -163,21 +173,30 @@ function getStats(query){
                                 let tmp = `User States: ${url}\n`;
                                 chart.setConfig({
                                     type: 'bar',
-                                    data: { labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-                                        datasets: [{ label: 'User Rating', data: [states[15], states[14], states[13], states[12], states[11],
-                                                states[10], states[9], states[8], states[7], states[6] ] }]
+                                    data: { labels: ['1-2', '3-4', '5-6', '7-8', '9-10'],
+                                        datasets: [{
+                                            label: 'User Rating',
+                                            data: [states[15] + states[14], states[13] + states[12], states[11] +
+                                                            states[10], states[9] + states[8], states[7] + states[6] ],
+                                            datalabels: {
+                                                color: '#000000',
+                                                yAdjust: 25
+                                                }
+                                            },
+                                        ]
                                     },
                                     options: {
                                         plugins: {
                                             datalabels: {
-                                                color: '#fff'
+                                                color: '#000000',
+                                                yAdjust: 25
                                             }
                                         }
                                     }
                                 });
                                 url = await chart.getShortUrl();
                                 resolve(tmp + `User Rating: ${url}`);
-                            }).catch((err) => reject(err));
+                            }).catch((err) => resolve({rpm: "Error!", rpm2: "Try again!"}));
                         }
                         catch (e){
                             malScraper.getStats(query).then(async (data) => {
@@ -192,13 +211,18 @@ function getStats(query){
                                         datasets: [{
                                             label: 'User State',
                                             data: [states[0], states[1], states[2], states[3], states[4]],
-                                            backgroundColor: '#fd5b75'
+                                            backgroundColor: '#fd5b75',
+                                            datalabels: {
+                                                color: '#000000',
+                                                yAdjust: 25
+                                            }
                                         }]
                                     },
                                     options: {
                                         plugins: {
                                             datalabels: {
-                                                color: '#fff'
+                                                color: '#000000',
+                                                yAdjust: 25
                                             }
                                         }
                                     }
@@ -207,26 +231,34 @@ function getStats(query){
                                 let tmp = `User States: ${url}\n`;
                                 chart.setConfig({
                                     type: 'bar',
-                                    data: { labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-                                        datasets: [{ label: 'User Rating', data: [states[15], states[14], states[13], states[12], states[11],
-                                                states[10], states[9], states[8], states[7], states[6] ] }]
+                                    data: { labels: ['1-2', '3-4', '5-6', '7-8', '9-10'],
+                                        datasets: [{
+                                            label: 'User Rating',
+                                            data: [states[15] + states[14], states[13] + states[12], states[11] +
+                                                                states[10], states[9] + states[8], states[7] + states[6] ],
+                                            datalabels: {
+                                                color: '#000000',
+                                                yAdjust: 25
+                                            }
+                                        }]
                                     },
                                     options: {
                                         plugins: {
                                             datalabels: {
-                                                color: '#fff'
+                                                color: '#000000',
+                                                yAdjust: 25
                                             }
                                         }
                                     }
                                 });
                                 url = await chart.getShortUrl();
                                 resolve(tmp + `User Rating: ${url}`);
-                            }).catch((err) => reject(err));
+                            }).catch((err) => resolve("Error!\nTry again!"));
                         }
                     })
-                    .catch((err) => console.log(err));
+                    .catch((err) => resolve("Error!\nTry again!"));
             })
-            .catch((err) => console.log(err));
+            .catch((err) => resolve("Error!\nTry again!"));
     });
 }
 
@@ -234,23 +266,23 @@ function getStats(query){
 function getInfo(query){
     return new Promise((resolve, reject) => {
         let rpm = "";
-        let rpm2 = "";
+        let synopsis = "";
         if (query.startsWith("http")) {
             malScraper.getInfoFromURL(query).then((data) => {
                 for (let prop in data) {
                     if (prop !== 'characters' && prop !== 'staff')
                         rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n'
                     else if(prop ==='synopsis')
-                        rpm2 = rpm2 + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n'
                 }
                 let tmp;
-                if (rpm !== "" && rpm2 !== "") {
-                    tmp = {rpm, rpm2};
+                if (rpm !== "" && synopsis !== "") {
+                    tmp = {rpm, synopsis};
                     resolve(tmp); // Resolve the Promise with the updated value of rpm
                 } else
                     resolve("Series doesn't exist!");
             }).catch((err) => {
-                resolve({rpm: "Error!", rpm2: "Try again!"})
+                resolve("Error!\nTry again!")
             })
         }
         else
@@ -260,15 +292,15 @@ function getInfo(query){
                     if (prop !== 'characters' && prop !== 'staff' && prop !== 'synopsis')
                         rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n'
                     else if(prop ==='synopsis')
-                        rpm2 = rpm2 + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n'
                 }
                 let tmp;
-                if (rpm !== "" && rpm2 !== "") {
-                    tmp = {rpm, rpm2};
+                if (rpm !== "" && synopsis !== "") {
+                    tmp = {rpm, synopsis};
                     resolve(tmp); // Resolve the Promise with the updated value of rpm
                 } else
                     resolve("Series doesn't exist!");
-            }).catch((err) => resolve({rpm: "Error!", rpm2: "Try again!"}))
+            }).catch((err) => resolve("Error!\nTry again!"))
         }
     });
 }

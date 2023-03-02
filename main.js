@@ -39,23 +39,28 @@ client.on('messageCreate', msg => {
         msg.reply(sh.printHelp());
     if (result[0] === '>user'){
         getUser(query).then((rpm) => {
-            msg.reply(rpm);
+                msg.reply(rpm); // sending the message
         }).catch((err) => console.log(err));
     }
     if (result[0] === '>pics') {
         getPictures(query).then((rpm) => {
-            msg.reply(rpm);
+                msg.reply(rpm); // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>stats') {
         getStats(query).then((rpm) => {
-            msg.reply(rpm);
+                msg.reply(rpm); // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>info'){
-        getInfo(query).then((tmp) => {
-            msg.reply(tmp.rpm);
-            msg.reply(tmp.rpm2);
+        getInfo(query).then((rpm) => {
+            if (Object.keys(rpm).length === 2) {
+                msg.reply(rpm.rpm); // sending the message
+                msg.reply(rpm.synopsis); // sending the synopsis
+            }
+            else{
+                msg.reply(rpm); // sending the message
+            }
         }).catch((err) => console.log(err));
     }
 
