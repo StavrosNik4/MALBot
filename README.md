@@ -20,7 +20,7 @@ MALBot is an essential tool for every anime-related discord server.
 **>user** _username_: sends info for the user <br>
 **>stats** _anime_name_: sends stats in diagrams for an anime <br>
 **>pics** _anime_name_: sends pictures of an anime <br>
-**>info** _anime_name_: sends information for an anime <br>
+**>info** _anime_name_ or _anime_url_: sends information for an anime <br>
 **>supp**: a command that show you all the ways you can support the MALBot project
 
 ### Command Examples

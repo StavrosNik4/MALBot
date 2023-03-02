@@ -1,7 +1,7 @@
 const {Client, GatewayIntentBits} = require('Discord.js')
 require('dotenv/config')
-require('./SuppHelp.js')
-require("./functions.js");
+const sh = require('./SuppHelp.js');
+const {getUser, getStats, getPictures, getInfo} = require('./functions.js');
 
 // create the client
 const client = new Client({
@@ -22,34 +22,40 @@ client.on('messageCreate', msg => {
 
     // getting the message content
     const result = msg.content.trim().split(/\s+/);
-    let cs = ''
+    let query = ''
     for (let i = 1; i < result.length; i++) {
-        cs = cs + result[i] + ' '
+        if(i!==result.length-1)
+            query = query + result[i] + ' '
+        else
+            query = query + result[i]
     }
+
+    //console.log(query)
 
     // different commands
     if(result[0] === '>supp')
-        msg.channel.send(printSupport());
+        msg.reply(sh.printSupport());
     if(result[0] === '>help')
-        msg.channel.send(printHelp());
+        msg.reply(sh.printHelp());
     if (result[0] === '>user'){
-        getUser(cs).then((rpm) => {
-                msg.channel.send(rpm);
+        getUser(query).then((rpm) => {
+            msg.reply(rpm);
         }).catch((err) => console.log(err));
     }
     if (result[0] === '>pics') {
-        getPictures(cs).then((rpm) => {
-            msg.channel.send(rpm);
+        getPictures(query).then((rpm) => {
+            msg.reply(rpm);
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>stats') {
-        getStats(cs).then((rpm) => {
-            msg.channel.send(rpm);
+        getStats(query).then((rpm) => {
+            msg.reply(rpm);
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>info'){
-        getInfo(cs).then((rpm) => {
-            msg.channel.send(rpm);
+        getInfo(query).then((tmp) => {
+            msg.reply(tmp.rpm);
+            msg.reply(tmp.rpm2);
         }).catch((err) => console.log(err));
     }
 

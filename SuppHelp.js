@@ -17,3 +17,8 @@ function printSupport(){
         'Thank you for all your support! :heart:'
 
 }
+
+module.exports = {
+    printSupport,
+    printHelp
+}
