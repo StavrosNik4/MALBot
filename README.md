@@ -16,12 +16,39 @@ MALBot is an essential tool for every anime-related discord server.
 
 ## Commands
 
-**>help**: prints all available commands <br>
-**>user** _username_: sends info for the user <br>
-**>stats** _anime_name_: sends stats in diagrams for an anime <br>
-**>pics** _anime_name_: sends pictures of an anime <br>
+**>help**: <br>
+Sends all the available commands and description <br>
+
+**>user** _username_: <br>
+
+With MALBot, you can easily retrieve all available data for a user on MyAnimeList.net. 
+Simply enter the user's name and MALBot will provide you with their favourite anime and manga, 
+along with other details such as their profile information and watching/reading progress. <br>
+
+**>stats** _anime_name_ or _anime_url_: <br>
+With MALBot, you can easily get stats for any anime you're interested in.
+You can easily get stats in chart form for any anime you're interested in. 
+Simply enter the name of the anime and MALBot will provide you with the best matching anime, 
+along with a chart displaying its stats. If you want to look up a specific anime that wasn't 
+found through the naming search, you can also use the anime's URL from MyAnimeList.net 
+to retrieve its stats in chart form. <br>
+
+**>pics** _anime_name_ or _anime_url_: <br>
+Want to see some posters of your favorite anime? MALBot can help with that too. 
+Simply enter the name of the anime you're interested in, and MALBot will provide you 
+with the pictures (and their links) from MyAnimeList.net. 
+If you're looking for a specific anime that wasn't found through the naming search, 
+you can also use the anime's URL from MyAnimeList.net.
+
 **>info** _anime_name_ or _anime_url_: sends information for an anime <br>
-**>supp**: a command that show you all the ways you can support the MALBot project
+MALBot can also provide you with general information about any anime you're interested in. 
+Simply enter the name of the anime, and MALBot will provide you with a synopsis, 
+genre information, and other details about the anime. 
+Again, if you're looking for a specific anime that wasn't found through the naming search, 
+you can use the anime's URL from MyAnimeList.net.
+
+**>supp**: 
+A command that show you all the ways you can support the MALBot project.
 
 ### Command Examples
 
@@ -40,18 +67,24 @@ Command: <br>
 Result: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_2.png" width=45% height=45%> <br>
 
+<ins>Note</ins>: Alternative you can use the **URL** of the anime from MAL.
+
 #### **>pics** _anime_name_
 Command: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_1.png" width=45%> <br>
 Result: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_2.png" width=45% height=45%> <br>
 
+<ins>Note</ins>: Alternative you can use the anime's **URL** from MAL.
+
 #### **>info** _anime_name_
 Command: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_1.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_1.png" width=45%> <br>
 Result: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_2.png" width=45% height=45%> <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_3.png" width=45% height=45%> <br>
+
+<ins>Note</ins>: Alternative you can use the anime's **URL** from MAL.
 
 #### **>supp**
 
