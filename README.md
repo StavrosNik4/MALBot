@@ -26,8 +26,10 @@ MALBot is an essential tool for every anime-related discord server.
 ### Command Examples
 
 #### **>user** _username_
-
-![alt text](https://github.com/[StavrosNik4]/[MALBot]/blob/[main]/examples/user_1.png?raw=true)
+Command: <br>
+![alt text](https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png?raw=true) <br>
+Result: <br>
+![alt text](https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png?raw=true)
 
 ## Invite the official bot to your server
 ``link``
