@@ -1,15 +1,15 @@
 # MALBot
-MALBot is a powerful Javascript Discord bot that scrapes data 
+MALBot is a powerful Javascript Discord bot that scrapes data
 from the popular anime and manga database website MyAnimeList.net and presents it in a visually
 appealing way for users.
 
-With MALBot, users can quickly access information about their favorite 
-anime and manga, including summaries, ratings, pictures and general information. 
+With MALBot, users can quickly access information about their favorite
+anime and manga, including summaries, ratings, pictures and general information.
 
-Additionally, MALBot provides users with customizable graphs and charts that display statistics 
+Additionally, MALBot provides users with customizable graphs and charts that display statistics
 for their favorite anime.
 
-The bot is easy to use and helps users stay up-to-date with their favorite anime and manga 
+The bot is easy to use and helps users stay up-to-date with their favorite anime and manga
 while also providing valuable insights into the broader anime community.
 MALBot is an essential tool for every anime-related discord server.
 
@@ -25,11 +25,39 @@ MALBot is an essential tool for every anime-related discord server.
 
 ### Command Examples
 
+#### **>help** <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/help.png" width=45% height=45%> <br>
+
 #### **>user** _username_
 Command: <br>
-![alt text](https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png?raw=true) <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png"> <br>
 Result: <br>
-![alt text](https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png?raw=true)
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png" width=45% height=45%> <br>
+
+#### **>stats** _anime_name_
+Command: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_4.png"> <br>
+Result: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_5.png" width=45% height=45%> <br>
+
+#### **>pics** _anime_name_
+Command: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_6.png"> <br>
+Result: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_7.png" width=45% height=45%> <br>
+
+#### **>info** _anime_name_
+Command: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_8.png"> <br>
+Result: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_9.png" width=45% height=45%> <br>
+
+#### **>supp**
+Command: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_10.png"> <br>
+Result: <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_11.png" width=45% height=45%> <br>
+
 
 ## Invite the official bot to your server
 ``link``
@@ -37,7 +65,7 @@ Result: <br>
 ## Contibute
 
 If you have an idea for the bot simply open an **issue page**. <br>
-If you have done some work open a **pull request** where we can discuss it 
+If you have done some work open a **pull request** where we can discuss it
 before we add it. <br>
 Thank you for all contributions! :heart:
 
@@ -54,20 +82,20 @@ You can install all the pre-requirements with these commands: <br>
 ```npm i quickchart-js``` <br>
 
 #### Steps:
-1. Fork the project 
+1. Fork the project
 2. Make a discord bot application through the Discord Developers Portal
 3. Change the TOKEN value with your token (in string format)
 4. Make your commits
-5. Open a pull request 
+5. Open a pull request
 
 ## Support
 
 If you want to support the project you can:
-    <li>Star the project on GitHub or help by contributing</li>
-    <li>Watch my YouTube video for the bot (it's in Greek but there are English subtitles available): </li>
-    <li>Donate through PayPal: https://www.paypal.com/donate/?hosted_button_id=63 </li>
-    <li>Buy me a Ko-fi: https://ko-fi.com/kamenos </li>
-    <li>Add the bot to your own Discord server</li>
+<li>Star the project on GitHub or help by contributing</li>
+<li>Watch my YouTube video for the bot (it's in Greek but there are English subtitles available): </li>
+<li>Donate through PayPal: https://www.paypal.com/donate/?hosted_button_id=63 </li>
+<li>Buy me a Ko-fi: https://ko-fi.com/kamenos </li>
+<li>Add the bot to your own Discord server</li>
 <br>
 All money will be used for the bot's hosting. <br>
 Thank you for all your support! :heart:
