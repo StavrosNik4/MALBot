@@ -16,11 +16,11 @@ function getUser(query) {
                         resolve("User doesn't exist!");
                 }
                 catch (err){
-                    logger.error(err.data, { stack: err.stack });
+                    logger.error(`getUser invalid input: ${query}`);
                     resolve("User doesn't exist!");
                 }
-            }).catch((err) => {
-            logger.error(err.data, { stack: err.stack });
+            }).catch(() => {
+            logger.error(`getUser invalid input: ${query}`);
             resolve("Error!\nTry again!")
         });
     });

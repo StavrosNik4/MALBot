@@ -3,16 +3,16 @@ const malScraper = require("mal-scraper");
 const {logger} = require("./functions");
 
 function getInfo(query){
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         let rpm = "";
         let synopsis = "";
         if (query.startsWith("http")) {
             malScraper.getInfoFromURL(query).then((data) => {
                 for (let prop in data) {
                     if (prop !== 'characters' && prop !== 'staff')
-                        rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n';
                     else if(prop ==='synopsis')
-                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n';
                 }
                 let tmp;
                 if (rpm !== "" && synopsis !== "") {
@@ -21,7 +21,8 @@ function getInfo(query){
                 } else
                     resolve("Series doesn't exist!");
             }).catch((err) => {
-                resolve("Error!\nTry again!")
+                logger.error(`getInfo invalid input: ${query}`);
+                resolve("Error!\nTry again!");
             })
         }
         else
@@ -29,9 +30,9 @@ function getInfo(query){
             malScraper.getInfoFromName(query, true).then((data) => {
                 for (let prop in data) {
                     if (prop !== 'characters' && prop !== 'staff' && prop !== 'synopsis')
-                        rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        rpm = rpm + '**' + prop + ':**' + '\t' + data[prop] + '\n';
                     else if(prop ==='synopsis')
-                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n'
+                        synopsis = synopsis + '**' + prop + ':**' + '\t' + data[prop] + '\n';
                 }
                 let tmp;
                 if (rpm !== "" && synopsis !== "") {
@@ -39,7 +40,10 @@ function getInfo(query){
                     resolve(tmp); // Resolve the Promise with the updated value of rpm
                 } else
                     resolve("Series doesn't exist!");
-            }).catch((err) => resolve("Error!\nTry again!"))
+            }).catch((err) => {
+                logger.error(`getInfo invalid input: ${query}`);
+                resolve("Error!\nTry again!");
+            })
         }
     });
 }

@@ -23,7 +23,7 @@ function getPictures(query) {
                         anime.total = stats.total;
                         return anime;
                     }).catch((err) => {
-                        logger.error(err.data, { stack: err.stack });
+                        logger.error(`Failed to get stats for ${anime.name}`);
                         console.log(`Failed to get stats for ${anime.name}: ${err}`);
                         anime.total = -1;
                         return anime;
@@ -54,7 +54,7 @@ function getPictures(query) {
                                         resolve("This series doesn't exists!");
                                 })
                                 .catch((err) => {
-                                    logger.error(err.data, { stack: err.stack });
+                                    logger.error(`getPictures invalid input: ${query}`);
                                     resolve({rpm: "Error!", rpm2: "Try again!"});
                                 })
                         }
@@ -75,18 +75,18 @@ function getPictures(query) {
                                         resolve("This series doesn't exists!");
                                 })
                                 .catch((err) => {
-                                    logger.error(err.data, { stack: err.stack });
+                                    logger.error(`getPictures invalid input: ${query}`);
                                     resolve("Error!\nTry again!");
                                 });
                         }
                     })
                     .catch((err) => {
-                        logger.error(err.data, { stack: err.stack });
+                        logger.error(`getPictures invalid input: ${query}`);
                         resolve("Error!\nTry again!")
                     });
             })
             .catch((err) => {
-                logger.error(err.data, { stack: err.stack });
+                logger.error(`getPictures invalid input: ${query}`);
                 resolve("Error!\nTry again!")
             });
     });

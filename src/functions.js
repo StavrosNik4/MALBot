@@ -1,5 +1,3 @@
-const malScraper = require("mal-scraper");
-const QuickChart = require("quickchart-js");
 const winston = require('winston');
 
 const logger = winston.createLogger({

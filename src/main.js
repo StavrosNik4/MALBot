@@ -43,28 +43,26 @@ client.on('messageCreate', msg => {
     if (result[0] === '>user'){
         getUser(query).then((data) => {
                 msg.reply(data.toString()) // sending the message
-                    .then(r => console.log(r)) // log the result
-                    .catch((e) => console.log(e)); // log the error
         }).catch((err) => console.log(err));
     }
     if (result[0] === '>pics') {
         getPictures(query).then((data) => {
-                msg.reply(data.toString()).then(r => console.log(r)).catch((e) => console.log(e)); // sending the message
+                msg.reply(data.toString()) // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>stats') {
         getStats(query).then((data) => {
-                msg.reply(data.toString()).then(r => console.log(r)).catch((e) => console.log(e)); // sending the message
+                msg.reply(data.toString()) // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>info'){
         getInfo(query).then((data) => {
             if (Object.keys(data).length === 2) {
-                msg.reply(data.rpm).then(r => console.log(r)).catch((e) => console.log(e)); // sending the message
-                msg.reply(data.synopsis).then(r => console.log(r)).catch((e) => console.log(e)); // sending the synopsis
+                msg.reply(data.rpm); // sending the message
+                msg.reply(data.synopsis); // sending the synopsis
             }
             else{
-                msg.reply(data.toString()).then(r => console.log(r)).catch((e) => console.log(e)); // sending the message
+                msg.reply(data.toString()); // sending the message
             }
         }).catch((err) => console.log(err));
     }
