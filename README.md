@@ -4,9 +4,10 @@ from the popular anime and manga database website MyAnimeList.net and presents i
 appealing way for users.
 
 With MALBot, users can quickly access information about their favorite
-anime and manga, including summaries, ratings, pictures and general information.
+anime (and manga in later update), including summaries, ratings, 
+pictures and general information.
 
-Additionally, MALBot provides users with customizable graphs and charts that display statistics
+Additionally, MALBot provides users with charts that display statistics
 for their favorite anime.
 
 The bot is easy to use and helps users stay up-to-date with their favorite anime and manga
