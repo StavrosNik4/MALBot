@@ -131,7 +131,7 @@ You can install all the pre-requirements with these commands: <br>
 If you want to support the project you can:
 <li>Star the project on GitHub or help by contributing</li>
 <li>Watch my YouTube video for the bot (it's in Greek but there are English subtitles available): </li>
-<li>Donate through PayPal: https://www.paypal.com/donate/?hosted_button_id=63 </li>
+<li>Donate through PayPal: https://www.paypal.com/donate/?hosted_button_id=J57Q96HPSQCYU </li>
 <li>Buy me a Ko-fi: https://ko-fi.com/kamenos </li>
 <li>Add the bot to your own Discord server</li>
 <br>
