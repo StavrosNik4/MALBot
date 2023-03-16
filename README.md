@@ -93,6 +93,13 @@ Result: <br>
 #### **>supp**
 
 
+## Logging
+
+MALBot provides logging for the requests quanty by producing daily reports. Here is an example:
+
+It also provides logging for the errors by making an error.log file. Here is an example:
+
+
 ## Invite the official bot to your server
 ``link``
 
