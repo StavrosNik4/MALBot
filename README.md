@@ -101,7 +101,7 @@ It also provides logging for the errors by making an error.log file. Here is an 
 
 
 ## Invite the official bot to your server
-``link``
+``https://discord.com/api/oauth2/authorize?client_id=1039731156125503560&permissions=412317174848&scope=bot``
 
 ## Documentation
 
