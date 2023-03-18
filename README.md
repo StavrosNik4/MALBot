@@ -120,9 +120,10 @@ Thank you for all contributions! :heart:
 3. quickchart-js (https://www.npmjs.com/package/quickchart-js)
 
 You can install all the pre-requirements with these commands: <br>
-```npm i discord.js``` <br>
-```npm install --save mal-scraper``` <br>
-```npm i quickchart-js``` <br>
+```npm i discord.js --save``` <br>
+```npm install mal-scraper --save``` <br>
+```npm i quickchart-js --save``` <br>
+```npm i winston --save```
 
 #### Steps:
 1. Fork the project
