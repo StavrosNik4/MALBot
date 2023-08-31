@@ -130,7 +130,7 @@ You can install all the pre-requirements with these commands: <br>
 2. Make a discord bot application through the Discord Developers Portal
 3. Change the TOKEN value with your token (in string format)
 4. Make your commits
-5. Open a pull request
+5. Open a pull request and explain what you did
 
 ## Support
 
