@@ -1,7 +1,6 @@
 // function that returns pictures of a show
 const malScraper = require("mal-scraper");
-const {logger} = require("./functions");
-const {removeNonAlphanumeric} = require("./functions");
+const {removeNonAlphanumeric} = require("./functions.js");
 
 function getPictures(query) {
     return new Promise((resolve) => {
@@ -23,7 +22,6 @@ function getPictures(query) {
                         anime.total = stats.total;
                         return anime;
                     }).catch((err) => {
-                        logger.error(`Failed to get stats for ${anime.name}`);
                         console.log(`Failed to get stats for ${anime.name}: ${err}`);
                         anime.total = -1;
                         return anime;
@@ -54,7 +52,6 @@ function getPictures(query) {
                                         resolve("This series doesn't exists!");
                                 })
                                 .catch((err) => {
-                                    logger.error(`getPictures invalid input: ${query}`);
                                     resolve({rpm: "Error!", rpm2: "Try again!"});
                                 })
                         }
@@ -75,18 +72,15 @@ function getPictures(query) {
                                         resolve("This series doesn't exists!");
                                 })
                                 .catch((err) => {
-                                    logger.error(`getPictures invalid input: ${query}`);
                                     resolve("Error!\nTry again!");
                                 });
                         }
                     })
                     .catch((err) => {
-                        logger.error(`getPictures invalid input: ${query}`);
                         resolve("Error!\nTry again!")
                     });
             })
             .catch((err) => {
-                logger.error(`getPictures invalid input: ${query}`);
                 resolve("Error!\nTry again!")
             });
     });

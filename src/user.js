@@ -1,6 +1,5 @@
 // function that returns info about a user
 const malScraper = require("mal-scraper");
-const {logger} = require("./functions.js");
 
 function getUser(query) {
     return new Promise((resolve) => {
@@ -16,11 +15,9 @@ function getUser(query) {
                         resolve("User doesn't exist!");
                 }
                 catch (err){
-                    logger.error(`getUser invalid input: ${query}`);
                     resolve("User doesn't exist!");
                 }
             }).catch(() => {
-            logger.error(`getUser invalid input: ${query}`);
             resolve("Error!\nTry again!")
         });
     });

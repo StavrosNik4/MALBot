@@ -1,7 +1,6 @@
 // function that returns stats of a show in a visual way
 const malScraper = require("mal-scraper");
 const QuickChart = require("quickchart-js");
-const {logger} = require("./functions");
 const {removeNonAlphanumeric} = require("./functions");
 
 function getStats(query){
@@ -25,7 +24,6 @@ function getStats(query){
                         anime.total = stats.total;
                         return anime;
                     }).catch((err) => {
-                        logger.error(`Failed to get stats for ${anime.name}`);
                         console.log(`Failed to get stats for ${anime.name}: ${err}`);
                         anime.total = -1;
                         return anime;
@@ -96,7 +94,6 @@ function getStats(query){
                                 url = await chart.getShortUrl();
                                 resolve(tmp + `User Rating: ${url}`);
                             }).catch((err) => {
-                                logger.error(`getStats invalid input: ${query}`);
                                 resolve({rpm: "Error!", rpm2: "Try again!"})
                             });
                         }
@@ -156,18 +153,15 @@ function getStats(query){
                                 url = await chart.getShortUrl();
                                 resolve(tmp + `User Rating: ${url}`);
                             }).catch((err) => {
-                                logger.error(`getStats invalid input: ${query}`);
                                 resolve("Error!\nTry again!");
                             });
                         }
                     })
                     .catch((err) => {
-                        logger.error(`getStats invalid input: ${query}`);
                         resolve("Error!\nTry again!");
                     });
             })
             .catch((err) => {
-                logger.error(`getStats invalid input: ${query}`);
                 resolve("Error!\nTry again!")
             });
     });

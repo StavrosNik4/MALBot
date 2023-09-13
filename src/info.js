@@ -1,6 +1,5 @@
 // function that returns info for a series
 const malScraper = require("mal-scraper");
-const {logger} = require("./functions");
 
 function getInfo(query){
     return new Promise((resolve) => {
@@ -21,7 +20,6 @@ function getInfo(query){
                 } else
                     resolve("Series doesn't exist!");
             }).catch((err) => {
-                logger.error(`getInfo invalid input: ${query}`);
                 resolve("Error!\nTry again!");
             })
         }
@@ -41,7 +39,6 @@ function getInfo(query){
                 } else
                     resolve("Series doesn't exist!");
             }).catch((err) => {
-                logger.error(`getInfo invalid input: ${query}`);
                 resolve("Error!\nTry again!");
             })
         }
