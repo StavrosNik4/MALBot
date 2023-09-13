@@ -1,11 +1,11 @@
 // function that returns info about a user
-const g = require("./users");
-const {logger} = require("./functions");
+const malScraper = require("mal-scraper");
+const {logger} = require("./functions.js");
 
 function getUser(query) {
     return new Promise((resolve) => {
-        let rpm = "";
-        g.getUser(query)
+        let rpm = "";   // result message
+        malScraper.getUser(query)
             .then((data) => {
                 try{
                     for (let prop in data)
