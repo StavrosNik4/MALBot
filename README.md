@@ -109,10 +109,6 @@ Example:
 
 The timezone is GMT+3
 
-## Documentation
-
-The official full documentation for both use and coding is available here.
-
 ## Contribute
 
 If you have an idea for the bot simply open an **issue page**. <br>
