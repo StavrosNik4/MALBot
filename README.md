@@ -97,9 +97,17 @@ Result: <br>
 
 ## Logging
 
-MALBot provides logging for the requests quanty by producing daily reports. Here is an example:
+MALBot provides server logging to check which servers use it. It logs in 2 files, `joined_servers.txt` and `left_servers.txt`. The format is the same for each file.
+Format:
+```
+DAY/MONTH/YEAR at HOUR:MINUTE:SECOND - SERVER_NAME (ID: SERVER_ID)
+```
+Example:
+```
+9/16/2023 at 23:34:53 - test 2 (ID: 1054465711331880960)
+```
 
-It also provides logging for the errors by making an error.log file. Here is an example:
+The timezone is GMT+3
 
 ## Documentation
 
