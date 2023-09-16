@@ -1,3 +1,7 @@
+/**
+ * Returns the help message with information about every command of the bot.
+ * @returns {string} the message to be sent
+ */
 function printHelp() {
     return  '>>> Commands\n' +
         '**>user** username: sends info for the user\n' +
@@ -7,6 +11,10 @@ function printHelp() {
         '**>supp**: a command that show you all the ways you can support the MALBot project'
 }
 
+/**
+ * Returns the support message with information about how to support this project.
+ * @returns {string} the message to be sent
+ */
 function printSupport(){
     return  'You can support the MALBot Project by the following ways: \n' +
         ':star: Star the project on GitHub or help by contributing: https://github.com/StavrosNik4/MALBot \n' +

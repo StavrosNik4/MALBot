@@ -1,19 +1,24 @@
-// function that returns pictures of a show
 const malScraper = require("mal-scraper");
 const {removeNonAlphanumeric} = require("./functions.js");
 
+/**
+ * Function that returns pictures of an anime series.
+ *
+ * @param query {string} Could be the MAL URL or the name of the anime.
+ * @returns {Promise<string>} A Promise that resolves to a string with anime pictures or an error message.
+ */
 function getPictures(query) {
     return new Promise((resolve) => {
-
+        // Step 1: Search for anime based on the query
         malScraper.getResultsFromSearch(query)
             .then((data) => {
-                // Filter the search results to only include anime whose name contains the query
+                // Step 2: Filter the search results to match the query
                 const filteredData = data.filter((anime) => {
                     const animeName = removeNonAlphanumeric(anime.name.toLowerCase());
                     const queryStr = removeNonAlphanumeric(query.toLowerCase());
                     return animeName.includes(queryStr);
                 });
-
+                // Step 3: Fetch statistics for each filtered anime
                 const promises = filteredData.map((anime) => {
                     return malScraper.getStats({
                         name: anime.name,
@@ -28,46 +33,53 @@ function getPictures(query) {
                     });
                 });
 
+                // Step 4: Wait for all promises to resolve
                 Promise.all(promises)
                     .then((animeData) => {
+                        // Step 5: Sort animeData by popularity
                         const sortedData = animeData.sort((a, b) => b.total - a.total);
-                        const highestTotalAnime = sortedData[0];
+                        const highestTotalAnime = sortedData[0];    // Get the most popular anime
+
+                        // Step 6: Fetch pictures for the most popular anime
                         try{
                             malScraper.getPictures({
                                 name: highestTotalAnime.name.toString(),
                                 id: parseInt(highestTotalAnime.id)
                             })
                                 .then((data) => {
-                                    let rpm = "";
+                                    // Step 7: Build a result string with picture details
+                                    let resultString = "";
                                     const finalObj = {}
-                                    for(let prop1 in data){
-                                        Object.assign(finalObj, data[prop1])
-                                        for(let prop2 in finalObj) {
-                                            rpm = rpm + prop2 + ': ' + finalObj[prop2] + '\n'
+                                    for(let property1 in data){
+                                        Object.assign(finalObj, data[property1])
+                                        for(let property2 in finalObj) {
+                                            resultString = resultString + property2 + ': ' + finalObj[property2] + '\n'
                                         }
                                     }
-                                    if (rpm !== "")
-                                        resolve(rpm); // Resolve the Promise with the updated value of rpm
+                                    if (resultString !== "")
+                                        resolve(resultString); // Resolve the Promise with the result string
                                     else
                                         resolve("This series doesn't exists!");
                                 })
                                 .catch((err) => {
-                                    resolve({rpm: "Error!", rpm2: "Try again!"});
+                                    resolve({resultString: "Error!", resultString2: "Try again!"});
                                 })
                         }
                         catch (err) {
+                            // Step 8: Handle exceptions when fetching pictures
                             malScraper.getPictures(query)
                                 .then((data) => {
-                                    let rpm = "";
+                                    // Step 9: Build a result string with picture details
+                                    let resultString = "";
                                     const finalObj = {}
                                     for(let prop1 in data){
                                         Object.assign(finalObj, data[prop1])
                                         for(let prop2 in finalObj) {
-                                            rpm = rpm + prop2 + ': ' + finalObj[prop2] + '\n'
+                                            resultString = resultString + prop2 + ': ' + finalObj[prop2] + '\n'
                                         }
                                     }
-                                    if (rpm !== "")
-                                        resolve(rpm); // Resolve the Promise with the updated value of rpm
+                                    if (resultString !== "")
+                                        resolve(resultString); // Resolve the Promise with the result string
                                     else
                                         resolve("This series doesn't exists!");
                                 })

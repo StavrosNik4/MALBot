@@ -58,7 +58,8 @@ client.on('messageCreate', msg => {
     if(result[0] === '>info'){
         getInfo(query).then((data) => {
             if (Object.keys(data).length === 2) {
-                msg.reply(data.rpm); // sending the message
+                // sending 2 messages because the content is too big for one discord message
+                msg.reply(data.resultString); // sending the message
                 msg.reply(data.synopsis); // sending the synopsis
             }
             else{
