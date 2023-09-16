@@ -120,7 +120,7 @@ Thank you for all contributions! :heart:
 
 #### Pre-requirements
 1. [Discord.js](https://github.com/discordjs/discord.js)
-2. [MalScrapper](https://github.com/Kylart/MalScraper) by Kylart
+2. [MalScrapper](https://github.com/Kylart/MalScraper) by [Kylart](https://github.com/Kylart)
 3. [quickchart-js](https://www.npmjs.com/package/quickchart-js)
 
 You can install all the pre-requirements with these commands: <br>
