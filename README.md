@@ -107,8 +107,6 @@ Example:
 9/16/2023 at 23:34:53 - test 2 (ID: 1054465711331880960)
 ```
 
-The timezone is GMT+3
-
 ## Contribute
 
 If you have an idea for the bot simply open an **issue page**. <br>
