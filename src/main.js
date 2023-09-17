@@ -121,7 +121,6 @@ client.on('messageCreate', msg => {
     }
 
 
-
     // different commands
     if(result[0] === '>supp'){
         logCommandEvent('supp');
