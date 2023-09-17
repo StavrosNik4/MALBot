@@ -65,6 +65,46 @@ function logServerEvent(eventType, guild) {
     });
 }
 
+function logCommandEvent(command){
+    const filePath = `./commands.txt`;
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(`Error reading the file: ${err}`);
+            return;
+        }
+
+        // Create a map to store the values for each command
+        const valueMap = new Map();
+
+        // Split the file content by lines and parse each line
+        data.split('\n').forEach((line) => {
+            const [key, value] = line.trim().split(':');
+            valueMap.set(key.trim(), parseInt(value.trim()));
+        });
+
+        // Increment the value for the specified command
+        if (valueMap.has(command)) {
+            valueMap.set(command, valueMap.get(command) + 1);
+
+            // Generate the updated content
+            const updatedContent = Array.from(valueMap)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join('\n');
+
+            // Write the updated content back to the file
+            fs.writeFile(filePath, updatedContent, 'utf8', (err) => {
+                if (err) {
+                    console.error(`Error writing to the file: ${err}`);
+                    return;
+                }
+                console.log(`${command} incremented successfully!`);
+            });
+        } else {
+            console.error(`Command "${command}" not found in the file.`);
+        }
+    });
+}
+
 
 // how the bot reacts to messages
 client.on('messageCreate', msg => {
@@ -80,27 +120,37 @@ client.on('messageCreate', msg => {
             query = query + result[i]
     }
 
+
+
     // different commands
-    if(result[0] === '>supp')
+    if(result[0] === '>supp'){
+        logCommandEvent('supp');
         msg.reply(sh.printSupport()).then(r => console.log(r)).catch((e) => console.log(e));
-    if(result[0] === '>help')
+    }
+    if(result[0] === '>help') {
+        logCommandEvent('help');
         msg.reply(sh.printHelp()).then(r => console.log(r)).catch((e) => console.log(e));
+    }
     if (result[0] === '>user'){
+        logCommandEvent('user');
         getUser(query).then((data) => {
                 msg.reply(data.toString()) // sending the message
         }).catch((err) => console.log(err));
     }
     if (result[0] === '>pics') {
+        logCommandEvent('pics');
         getPictures(query).then((data) => {
                 msg.reply(data.toString()) // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>stats') {
+        logCommandEvent('stats');
         getStats(query).then((data) => {
                 msg.reply(data.toString()) // sending the message
         }).catch((err) => console.log(err));
     }
     if(result[0] === '>info'){
+        logCommandEvent('info');
         getInfo(query).then((data) => {
             if (Object.keys(data).length === 2) {
                 // sending 2 messages because the content is too big for one discord message
