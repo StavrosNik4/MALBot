@@ -97,13 +97,15 @@ Result: <br>
 
 ## Logging
 
-MALBot provides logging for the requests quanty by producing daily reports. Here is an example:
-
-It also provides logging for the errors by making an error.log file. Here is an example:
-
-## Documentation
-
-The official full documentation for both use and coding is available here.
+MALBot provides server logging to check which servers use it. It logs in 2 files, `joined_servers.txt` and `left_servers.txt`. The format is the same for each file.
+Format:
+```
+DAY/MONTH/YEAR at HOUR:MINUTE:SECOND - SERVER_NAME (ID: SERVER_ID)
+```
+Example:
+```
+9/16/2023 at 23:34:53 - test 2 (ID: 1054465711331880960)
+```
 
 ## Contribute
 
@@ -116,7 +118,7 @@ Thank you for all contributions! :heart:
 
 #### Pre-requirements
 1. [Discord.js](https://github.com/discordjs/discord.js)
-2. [MalScrapper](https://github.com/Kylart/MalScraper) by Kylart
+2. [MalScrapper](https://github.com/Kylart/MalScraper) by [Kylart](https://github.com/Kylart)
 3. [quickchart-js](https://www.npmjs.com/package/quickchart-js)
 
 You can install all the pre-requirements with these commands: <br>
