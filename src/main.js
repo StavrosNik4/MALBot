@@ -79,7 +79,9 @@ function logCommandEvent(command){
         // Split the file content by lines and parse each line
         data.split('\n').forEach((line) => {
             const [key, value] = line.trim().split(':');
-            valueMap.set(key.trim(), parseInt(value.trim()));
+            if (key && value) {
+                valueMap.set(key.trim(), parseInt(value.trim()));
+            }
         });
 
         // Increment the value for the specified command
