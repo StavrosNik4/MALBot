@@ -93,7 +93,7 @@ Result: <br>
 <ins>Note</ins>: Alternative you can use the anime's **URL** from MAL.
 
 #### **>supp**
-
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/supp.png"> <br>
 
 ## Logging
 
