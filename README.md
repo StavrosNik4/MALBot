@@ -97,7 +97,7 @@ Result: <br>
 
 ## Logging
 
-MALBot provides server logging to check which servers use it. It logs in 2 files, `joined_servers.txt` and `left_servers.txt`. The format is the same for each file.
+MALBot provides server logging to check which servers use it. It logs in 2 files, `joined_servers.txt` and `left_servers.txt`. The format is the same for each file. <br>
 Format:
 ```
 DAY/MONTH/YEAR at HOUR:MINUTE:SECOND - SERVER_NAME (ID: SERVER_ID)
@@ -106,6 +106,22 @@ Example:
 ```
 9/16/2023 at 23:34:53 - test 2 (ID: 1054465711331880960)
 ```
+
+Also the bot logs the number of times a command was used in a `commands.txt` file. <br>
+Format:
+```
+user: x
+pics: x
+stats: x
+info: x
+supp: x
+help: x
+```
+
+where x is the number of times each command was used.
+
+There is also the `daily_log_and_reset.sh` bash script, in the bash scripts folder, that makes a report file and resets the values of the `commands.txt` file to 0. 
+You can use this script as a cronjob that runs every day, on your server that you host the bot, to make daily reports. 
 
 ## Contribute
 
