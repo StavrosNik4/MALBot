@@ -62,8 +62,7 @@ async function getStats(query) {
         const urlUserRating = await chartUserRating.getShortUrl();
 
         // Step 10: Build and return the result string with chart URLs
-        const resultString = `User States: ${urlUserStates}\nUser Rating: ${urlUserRating}`;
-        return resultString;
+        return `User States: ${urlUserStates}\nUser Rating: ${urlUserRating}`;
     } catch (err) {
         console.error("Error!\nTry again!", err);
         return "Error!\nTry again!";
