@@ -5,8 +5,7 @@ const {getUser} = require('./user.js');
 const {getStats} = require('./stats.js');
 const {getPictures} = require('./pictures.js');
 const {getInfo} = require('./info.js');
-const {logCommandEvent} = require('./functions.js');
-const fs = require("fs");
+const {logCommandEvent, logServerEvent} = require('./functions.js');
 
 
 // create the client
@@ -39,32 +38,6 @@ client.on('guildDelete', (guild) => {
     logServerEvent('left', guild);
 });
 
-// Function to get the current timestamp in a human-readable format
-function getCurrentTimestamp() {
-    const now = new Date();
-    // Format the date as 'YYYY-MM-DD'
-    const formattedDate = now.toLocaleDateString('en-US');
-    // Format the time as 'HH:MM:SS' in 24-hour format
-    const formattedTime = now.toLocaleTimeString('en-US', { hour12: false });
-    // Combine the date and time for the full timestamp
-    return `${formattedDate} at ${formattedTime}`;
-}
-
-// Function to log a server event to a file
-function logServerEvent(eventType, guild) {
-    // Define the log file path based on the event type (joined or left)
-    const logFilePath = `./${eventType}_servers.txt`;
-    // Get the current timestamp
-    const timestamp = getCurrentTimestamp();
-
-    // Append the event information to the log file
-    fs.appendFile(logFilePath, `${timestamp} - ${guild.name} (ID: ${guild.id})\n`, (err) => {
-        if (err) {
-            // Handle any errors that occur during file writing
-            console.error('Error writing to log file:', err);
-        }
-    });
-}
 
 // how the bot reacts to messages
 client.on('messageCreate', msg => {
@@ -79,7 +52,6 @@ client.on('messageCreate', msg => {
         else
             query = query + result[i]
     }
-
 
     // different commands
     if(result[0] === '>supp'){
@@ -124,4 +96,4 @@ client.on('messageCreate', msg => {
 })
 
 // login
-client.login(process.env.DEV_TOKEN).then(r => console.log(r)).catch((e) => console.log(e))
+client.login('MTE1MjY5OTM1MTkwMzI0MDM1Mg.G2UEc2.txubrYW3CQwi2IWw9cjz0rz8FBqOTZMGPM2CYg').then(r => console.log(r)).catch((e) => console.log(e))
