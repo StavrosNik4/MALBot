@@ -37,17 +37,17 @@ function getPictures(query) {
                 Promise.all(promises)
                     .then((animeData) => {
                         // Step 5: Find the most popular anime without sorting
-                        let highestTotalAnime = animeData[0];
+                        let mostPopularAnime = animeData[0];
 
                         for (let i = 1; i < animeData.length; i++)
-                            if (animeData[i].total > highestTotalAnime.total)
-                                highestTotalAnime = animeData[i];
+                            if (animeData[i].total > mostPopularAnime.total)
+                                mostPopularAnime = animeData[i];
 
                         // Step 6: Fetch pictures for the most popular anime
                         try{
                             malScraper.getPictures({
-                                name: highestTotalAnime.name.toString(),
-                                id: parseInt(highestTotalAnime.id)
+                                name: mostPopularAnime.name.toString(),
+                                id: parseInt(mostPopularAnime.id)
                             })
                                 .then((data) => {
                                     // Step 7: Build a result string with picture details

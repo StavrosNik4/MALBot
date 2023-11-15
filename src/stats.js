@@ -32,12 +32,15 @@ function getStats(query){
 
                 Promise.all(promises)
                     .then((animeData) => {
-                        const sortedData = animeData.sort((a, b) => b.total - a.total);
-                        const highestTotalAnime = sortedData[0];
+                        let mostPopularAnime = animeData[0];
+
+                        for (let i = 1; i < animeData.length; i++)
+                            if (animeData[i].total > mostPopularAnime.total)
+                                mostPopularAnime = animeData[i];
                         try{
                             malScraper.getStats({
-                                name: highestTotalAnime.name.toString(),
-                                id: parseInt(highestTotalAnime.id)
+                                name: mostPopularAnime.name.toString(),
+                                id: parseInt(mostPopularAnime.id)
                             }).then(async (data) => {
                                 let states = []
                                 for (let prop in data)
