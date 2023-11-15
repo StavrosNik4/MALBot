@@ -36,9 +36,12 @@ function getPictures(query) {
                 // Step 4: Wait for all promises to resolve
                 Promise.all(promises)
                     .then((animeData) => {
-                        // Step 5: Sort animeData by popularity
-                        const sortedData = animeData.sort((a, b) => b.total - a.total);
-                        const highestTotalAnime = sortedData[0];    // Get the most popular anime
+                        // Step 5: Find the most popular anime without sorting
+                        let highestTotalAnime = animeData[0];
+
+                        for (let i = 1; i < animeData.length; i++)
+                            if (animeData[i].total > highestTotalAnime.total)
+                                highestTotalAnime = animeData[i];
 
                         // Step 6: Fetch pictures for the most popular anime
                         try{
