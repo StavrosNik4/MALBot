@@ -96,4 +96,4 @@ client.on('messageCreate', msg => {
 })
 
 // login
-client.login('MTE1MjY5OTM1MTkwMzI0MDM1Mg.G2UEc2.txubrYW3CQwi2IWw9cjz0rz8FBqOTZMGPM2CYg').then(r => console.log(r)).catch((e) => console.log(e))
+client.login(process.env.DEV_TOKEN).then(r => console.log(r)).catch((e) => console.log(e))
