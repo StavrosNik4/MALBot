@@ -19,16 +19,17 @@ Invite Link: https://discord.com/api/oauth2/authorize?client_id=1039731156125503
 
 ## Commands
 
-**>help**: <br>
+``>help``
+
 Sends all the available commands and description <br>
 
-**>user** _username_:
+``>user _username_``
 
 With MALBot, you can easily retrieve all available data for a user on MyAnimeList.net. 
 Simply enter the user's name and MALBot will provide you with their favourite anime and manga, 
 along with other details such as their profile information and watching/reading progress. <br>
 
-**>stats** _anime_name_ or _anime_url_:
+``>stats _anime_name_ or _anime_url_``
 
 With MALBot, you can easily get stats for any anime you're interested in.
 You can easily get stats in chart form for any anime you're interested in. 
@@ -37,7 +38,7 @@ along with a chart displaying its stats. If you want to look up a specific anime
 found through the naming search, you can also use the anime's URL from MyAnimeList.net 
 to retrieve its stats in chart form. <br>
 
-**>pics** _anime_name_ or _anime_url_: 
+``>pics _anime_name_ or _anime_url_``
 
 Want to see some posters of your favorite anime? MALBot can help with that too. 
 Simply enter the name of the anime you're interested in, and MALBot will provide you 
@@ -45,7 +46,7 @@ with the pictures (and their links) from MyAnimeList.net.
 If you're looking for a specific anime that wasn't found through the naming search, 
 you can also use the anime's URL from MyAnimeList.net.
 
-**>info** _anime_name_ or _anime_url_: 
+``>info _anime_name_ or _anime_url_``
 
 MALBot can also provide you with general information about any anime you're interested in. 
 Simply enter the name of the anime, and MALBot will provide you with a synopsis, 
@@ -53,7 +54,8 @@ genre information, and other details about the anime.
 Again, if you're looking for a specific anime that wasn't found through the naming search, 
 you can use the anime's URL from MyAnimeList.net.
 
-**>supp**: 
+``>supp``
+
 A command that show you all the ways you can support the MALBot project.
 
 ### Command Examples
