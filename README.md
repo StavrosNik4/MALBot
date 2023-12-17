@@ -61,19 +61,19 @@ A command that show you all the ways you can support the MALBot project.
 ### Command Examples
 
 #### **>help** <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/help.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/help.png" width="500px"> <br>
 
 #### **>user** _username_
 Command: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_1.png"> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/user_2.png" width="600px"> <br>
 
 #### **>stats** _anime_name_
 Command: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_1.png"> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_2.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/stats_2.png" width="600px"> <br>
 
 <ins>Note</ins>: Alternative you can use the **URL** of the anime from MAL.
 
@@ -81,7 +81,7 @@ Result: <br>
 Command: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_1.png"> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_2.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pics_2.png" width="600px"> <br>
 
 <ins>Note</ins>: Alternative you can use the anime's **URL** from MAL.
 
@@ -89,13 +89,13 @@ Result: <br>
 Command: <br>
 <img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_1.png"> <br>
 Result: <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_2.png"> <br>
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_3.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_2.png" width="600px"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/info_3.png" width="600px"> <br>
 
 <ins>Note</ins>: Alternative you can use the anime's **URL** from MAL.
 
 #### **>supp**
-<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/supp.png"> <br>
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/supp.png" width="600px"> <br>
 
 ## Logging
 
