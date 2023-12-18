@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/StavrosNik4/MALBot/blob/main/examples/pfp.jpg" aling="center" width="200">
+</p>
+
 # MALBot
 MALBot is a powerful Javascript Discord bot that scrapes data
 from the popular anime and manga database website MyAnimeList.net and presents it in a visually
