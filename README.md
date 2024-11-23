@@ -18,8 +18,8 @@ The bot is easy to use and helps users stay up-to-date with their favorite anime
 while also providing valuable insights into the broader anime community.
 MALBot is an essential tool for every anime-related discord server.
 
-## Invite the official bot to your server
-Invite Link: https://discord.com/api/oauth2/authorize?client_id=1039731156125503560&permissions=412317174848&scope=bot
+<!-- ## Invite the official bot to your server -->
+<!-- Invite Link: https://discord.com/api/oauth2/authorize?client_id=1039731156125503560&permissions=412317174848&scope=bot -->
 
 ## Commands
 
